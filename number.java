@@ -33,7 +33,6 @@ public class guess
     {   
         randomNumber = randomNumber();
         boolean help = needHint();
-        System.out.println(help);
         System.out.println("I have sucessfully generated a random number from 1 to " + maximum + ". Now guess the number! (10 attempts)");
         for (int i = 0; i < 10; i++) {
             try {
