@@ -38,17 +38,21 @@ public class guess
             try {
                 int guess = scanner.nextInt();
                 if (i == 5 && help == true) {
-                    if (randomNumber < 50) {
-                        System.out.println("The random number is less than 50");
-                    } else if (randomNumber > 50) {
-                        System.out.println("The random number is greater than 50, but less than 100");
-                    } else if (randomNumber > 100) {
-                        System.out.println("The random number is greater than 100, but less than 150");
-                    } else if (randomNumber > 150) {
-                        System.out.println("The random number is greater than 150, but less than 200");
-                    } else if (randomNumber > 200) {
+                    if (randomNumber > 200 && randomNumber < 250) {
                         System.out.println("The random number is greater than 200, but less than 250");
                     }
+                    if (randomNumber > 150 && randomNumber < 200) {
+                        System.out.println("The random number is greater than 150, but less than 200");
+                    } 
+                    if (randomNumber > 100 && randomNumber < 150) {
+                        System.out.println("The random number is greater than 100, but less than 150");
+                    }
+                    if (randomNumber > 50 && randomNumber < 100) {
+                        System.out.println("The random number is greater than 50, but less than 100");
+                    }
+                    if (randomNumber < 50) {
+                        System.out.println("The random number is less than 50");
+                    } 
                 }
                 if (guess > maximum || guess < 1) {
                     System.out.println("That is out of range");
@@ -82,6 +86,7 @@ public class guess
         } catch (InputMismatchException error) {
             scanner.next();
             System.out.println("Please enter an integer");
+            randomNumber();
         }
         int randomNumber = (int)(Math.random() * maximum) + 1;
         return randomNumber;
