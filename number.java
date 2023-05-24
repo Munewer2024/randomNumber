@@ -14,7 +14,7 @@ public class guess
     private String needHint;
     private int randomNumber;
     Scanner scanner = new Scanner(System.in);
-
+    private int score;
     /**
      * Constructor for objects of class guess
      */
@@ -33,11 +33,12 @@ public class guess
     {   
         randomNumber = randomNumber();
         boolean help = needHint();
-        System.out.println("I have sucessfully generated a random number from 1 to " + maximum + ". Now guess the number! (10 attempts)");
-        for (int i = 0; i < 10; i++) {
+        System.out.println("Score: " + score);
+        System.out.println("I have sucessfully generated a random number from 1 to " + maximum + ". Now guess the number! (250 attempts)");
+        for (int i = 0; i < 250; i++) {
             try {
                 int guess = scanner.nextInt();
-                if (i == 5 && help == true) {
+                if (i == 124 && help == true) {
                     if (randomNumber > 200 && randomNumber < 250) {
                         System.out.println("The random number is greater than 200, but less than 250");
                     }
@@ -59,13 +60,15 @@ public class guess
                     i--;
                 }
                 if (guess == randomNumber) {
-                    System.out.println("Correct. The number was " + randomNumber);
-                    break;
-                } else if (i < 9) {
-                    System.out.println("Try again!");
+                    System.out.println("Correct. The number was " + randomNumber + " in " + i + " attempts. Starting next round");
+                    score++;
+                    guessNumber();
+                } else if (i < 249) {
+                    System.out.println("Try again! Attempts: " + i);
                 }
-                if (i == 9) {
+                if (i == 249) {
                     System.out.println("The random number was " + randomNumber);
+                    score = 0;
                 }
             } catch (InputMismatchException error) {
                 scanner.next();
